@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router, ParamMap, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-mycomp1',
   templateUrl: './mycomp1.component.html',
@@ -12,11 +12,22 @@ export class Mycomp1Component implements OnInit {
     { id: 3, course: 'mongooose' },
     { id: 4, course: 'sports' },
   ];
-  constructor(private route:Router) {}
 
-  ngOnInit() {}
+  public id;
+  constructor(private route: Router, private ac: ActivatedRoute) {}
 
-  onfire(g){
-    this.route.navigate(['/depart',g.id])
+  ngOnInit() {
+    this.ac.paramMap.subscribe((params: ParamMap) => {
+      let id = parseInt(params.get('id'));
+      this.id = id;
+    });
+  }
+
+  onfire(g) {
+    this.route.navigate(['/depart', g.id]);
+  }
+  isSelected(val) {
+    console.log(val.id === this.id);
+    return val.id === this.id;
   }
 }

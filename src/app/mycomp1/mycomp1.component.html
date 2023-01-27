@@ -1,4 +1,10 @@
 <p>werkjing 1</p>
-<div (click)="onfire(g)" *ngFor="let g of CourseDatat">
-  <p>{{ g.id }} {{ g.course }}</p>
-</div>
+<ul>
+  <li
+    (click)="onfire(g)"
+    [class.apply]="isSelected(g)"
+    *ngFor="let g of CourseDatat"
+  >
+    <p>{{ g.id }} {{ g.course }}</p>
+  </li>
+</ul>

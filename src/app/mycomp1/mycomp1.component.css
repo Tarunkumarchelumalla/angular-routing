@@ -1,3 +1,6 @@
-div {
+li {
   cursor: pointer;
+}
+.apply {
+  color: red;
 }

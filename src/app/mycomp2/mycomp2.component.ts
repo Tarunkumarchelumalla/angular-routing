@@ -24,4 +24,8 @@ export class Mycomp2Component implements OnInit {
     let preid = this.id - 1;
     this.route.navigate(['/depart', preid]);
   }
+  goback() {
+    let selectedid = this.id ? this.id : null;
+    this.route.navigate(['/depart', { id: selectedid }]);
+  }
 }
