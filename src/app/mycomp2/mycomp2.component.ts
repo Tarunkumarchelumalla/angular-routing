@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-mycomp2',
   templateUrl: './mycomp2.component.html',
-  styleUrls: ['./mycomp2.component.css']
+  styleUrls: ['./mycomp2.component.css'],
 })
 export class Mycomp2Component implements OnInit {
-
-  constructor() { }
+  public id;
+  constructor(private ac: ActivatedRoute, private route: Router) {}
 
   ngOnInit() {
+    // this.id = parseInt(this.ac.snapshot.paramMap.get('id'));
+    this.ac.paramMap.subscribe((params: ParamMap) => {
+      let id = parseInt(params.get('id'));
+      this.id = id;
+    });
   }
-
+  nxt() {
+    let nxtid = this.id + 1;
+    this.route.navigate(['/depart', nxtid]);
+  }
+  prev() {
+    let preid = this.id - 1;
+    this.route.navigate(['/depart', preid]);
+  }
 }

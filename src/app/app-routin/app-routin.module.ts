@@ -6,8 +6,8 @@ import { Mycomp2Component } from '../mycomp2/mycomp2.component';
 import { PageComponent } from '../404-page/404-page.component';
 const routes: Routes = [
   { path: '', redirectTo: '/depart', pathMatch: 'full' },
-  { path: 'depart/:id', component: Mycomp1Component },
-  { path: 'depart2', component: Mycomp2Component },
+  { path: 'depart', component: Mycomp1Component },
+  { path: 'depart/:id', component: Mycomp2Component },
   { path: '**', component: PageComponent },
 ];
 @NgModule({

@@ -16,7 +16,7 @@ export class Mycomp1Component implements OnInit {
 
   ngOnInit() {}
 
-  onfire(val){
-this.route.navigate(['/depart',val.id])
+  onfire(g){
+    this.route.navigate(['/depart',g.id])
   }
 }
