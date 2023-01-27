@@ -28,4 +28,10 @@ export class Mycomp2Component implements OnInit {
     let selectedid = this.id ? this.id : null;
     this.route.navigate(['/depart', { id: selectedid }]);
   }
+  child1() {
+    this.route.navigate(['child1'], { relativeTo: this.ac });
+  }
+  child2() {
+    this.route.navigate(['child2'], { relativeTo: this.ac });
+  }
 }
